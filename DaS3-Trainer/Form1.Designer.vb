@@ -24,6 +24,20 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.tabs = New System.Windows.Forms.TabControl()
         Me.tabStats = New System.Windows.Forms.TabPage()
+        Me.txtZPos = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.txtYPos = New System.Windows.Forms.TextBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txtXPos = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.chkMale = New System.Windows.Forms.CheckBox()
+        Me.chkEmbered = New System.Windows.Forms.CheckBox()
+        Me.txtCovenant = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.txtDeaths = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtTimePlayed = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.hsLLeg = New System.Windows.Forms.HScrollBar()
         Me.hsLArm = New System.Windows.Forms.HScrollBar()
@@ -66,14 +80,10 @@ Partial Class Form1
         Me.txtMaxHp = New System.Windows.Forms.TextBox()
         Me.txtCurrHp = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtDeaths = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.txtTimePlayed = New System.Windows.Forms.TextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.txtCovenant = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.chkEmbered = New System.Windows.Forms.CheckBox()
-        Me.chkMale = New System.Windows.Forms.CheckBox()
+        Me.txtTimesSuccessful = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtTimesSummoned = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.tabs.SuspendLayout()
         Me.tabStats.SuspendLayout()
         Me.SuspendLayout()
@@ -84,11 +94,21 @@ Partial Class Form1
         Me.tabs.Location = New System.Drawing.Point(13, 13)
         Me.tabs.Name = "tabs"
         Me.tabs.SelectedIndex = 0
-        Me.tabs.Size = New System.Drawing.Size(524, 372)
+        Me.tabs.Size = New System.Drawing.Size(527, 476)
         Me.tabs.TabIndex = 0
         '
         'tabStats
         '
+        Me.tabStats.Controls.Add(Me.txtTimesSuccessful)
+        Me.tabStats.Controls.Add(Me.Label22)
+        Me.tabStats.Controls.Add(Me.txtTimesSummoned)
+        Me.tabStats.Controls.Add(Me.Label23)
+        Me.tabStats.Controls.Add(Me.txtZPos)
+        Me.tabStats.Controls.Add(Me.Label19)
+        Me.tabStats.Controls.Add(Me.txtYPos)
+        Me.tabStats.Controls.Add(Me.Label20)
+        Me.tabStats.Controls.Add(Me.txtXPos)
+        Me.tabStats.Controls.Add(Me.Label21)
         Me.tabStats.Controls.Add(Me.chkMale)
         Me.tabStats.Controls.Add(Me.chkEmbered)
         Me.tabStats.Controls.Add(Me.txtCovenant)
@@ -142,19 +162,135 @@ Partial Class Form1
         Me.tabStats.Location = New System.Drawing.Point(4, 22)
         Me.tabStats.Name = "tabStats"
         Me.tabStats.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabStats.Size = New System.Drawing.Size(516, 346)
+        Me.tabStats.Size = New System.Drawing.Size(519, 450)
         Me.tabStats.TabIndex = 0
         Me.tabStats.Text = "Stats"
         Me.tabStats.UseVisualStyleBackColor = True
         '
+        'txtZPos
+        '
+        Me.txtZPos.Location = New System.Drawing.Point(77, 401)
+        Me.txtZPos.Name = "txtZPos"
+        Me.txtZPos.Size = New System.Drawing.Size(57, 20)
+        Me.txtZPos.TabIndex = 55
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(36, 404)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(35, 13)
+        Me.Label19.TabIndex = 54
+        Me.Label19.Text = "Z Pos"
+        '
+        'txtYPos
+        '
+        Me.txtYPos.Location = New System.Drawing.Point(77, 380)
+        Me.txtYPos.Name = "txtYPos"
+        Me.txtYPos.Size = New System.Drawing.Size(57, 20)
+        Me.txtYPos.TabIndex = 53
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(36, 383)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(35, 13)
+        Me.Label20.TabIndex = 52
+        Me.Label20.Text = "Y Pos"
+        '
+        'txtXPos
+        '
+        Me.txtXPos.Location = New System.Drawing.Point(77, 359)
+        Me.txtXPos.Name = "txtXPos"
+        Me.txtXPos.Size = New System.Drawing.Size(57, 20)
+        Me.txtXPos.TabIndex = 51
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(36, 362)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(35, 13)
+        Me.Label21.TabIndex = 50
+        Me.Label21.Text = "X Pos"
+        '
+        'chkMale
+        '
+        Me.chkMale.AutoSize = True
+        Me.chkMale.Location = New System.Drawing.Point(391, 141)
+        Me.chkMale.Name = "chkMale"
+        Me.chkMale.Size = New System.Drawing.Size(49, 17)
+        Me.chkMale.TabIndex = 49
+        Me.chkMale.Text = "Male"
+        Me.chkMale.UseVisualStyleBackColor = True
+        '
+        'chkEmbered
+        '
+        Me.chkEmbered.AutoSize = True
+        Me.chkEmbered.Location = New System.Drawing.Point(391, 120)
+        Me.chkEmbered.Name = "chkEmbered"
+        Me.chkEmbered.Size = New System.Drawing.Size(68, 17)
+        Me.chkEmbered.TabIndex = 48
+        Me.chkEmbered.Text = "Embered"
+        Me.chkEmbered.UseVisualStyleBackColor = True
+        '
+        'txtCovenant
+        '
+        Me.txtCovenant.Location = New System.Drawing.Point(231, 265)
+        Me.txtCovenant.Name = "txtCovenant"
+        Me.txtCovenant.Size = New System.Drawing.Size(127, 20)
+        Me.txtCovenant.TabIndex = 47
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(172, 268)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(53, 13)
+        Me.Label18.TabIndex = 46
+        Me.Label18.Text = "Covenant"
+        '
+        'txtDeaths
+        '
+        Me.txtDeaths.Location = New System.Drawing.Point(231, 202)
+        Me.txtDeaths.Name = "txtDeaths"
+        Me.txtDeaths.Size = New System.Drawing.Size(57, 20)
+        Me.txtDeaths.TabIndex = 45
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(184, 205)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(41, 13)
+        Me.Label16.TabIndex = 44
+        Me.Label16.Text = "Deaths"
+        '
+        'txtTimePlayed
+        '
+        Me.txtTimePlayed.Location = New System.Drawing.Point(231, 223)
+        Me.txtTimePlayed.Name = "txtTimePlayed"
+        Me.txtTimePlayed.Size = New System.Drawing.Size(99, 20)
+        Me.txtTimePlayed.TabIndex = 43
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(160, 226)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(65, 13)
+        Me.Label17.TabIndex = 42
+        Me.Label17.Text = "Time Played"
+        '
         'lblVersion
         '
         Me.lblVersion.AutoSize = True
-        Me.lblVersion.Location = New System.Drawing.Point(425, 322)
+        Me.lblVersion.Location = New System.Drawing.Point(437, 428)
         Me.lblVersion.Name = "lblVersion"
         Me.lblVersion.Size = New System.Drawing.Size(76, 13)
         Me.lblVersion.TabIndex = 41
-        Me.lblVersion.Text = "2016-04-15-22"
+        Me.lblVersion.Text = "2016-04-18-22"
         '
         'hsLLeg
         '
@@ -215,7 +351,7 @@ Partial Class Form1
         'chkHideMap
         '
         Me.chkHideMap.AutoSize = True
-        Me.chkHideMap.Location = New System.Drawing.Point(13, 321)
+        Me.chkHideMap.Location = New System.Drawing.Point(13, 427)
         Me.chkHideMap.Name = "chkHideMap"
         Me.chkHideMap.Size = New System.Drawing.Size(103, 17)
         Me.chkHideMap.TabIndex = 33
@@ -483,79 +619,43 @@ Partial Class Form1
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "HP"
         '
-        'txtDeaths
+        'txtTimesSuccessful
         '
-        Me.txtDeaths.Location = New System.Drawing.Point(231, 202)
-        Me.txtDeaths.Name = "txtDeaths"
-        Me.txtDeaths.Size = New System.Drawing.Size(57, 20)
-        Me.txtDeaths.TabIndex = 45
+        Me.txtTimesSuccessful.Location = New System.Drawing.Point(273, 401)
+        Me.txtTimesSuccessful.Name = "txtTimesSuccessful"
+        Me.txtTimesSuccessful.Size = New System.Drawing.Size(57, 20)
+        Me.txtTimesSuccessful.TabIndex = 59
         '
-        'Label16
+        'Label22
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(184, 205)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(41, 13)
-        Me.Label16.TabIndex = 44
-        Me.Label16.Text = "Deaths"
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(163, 404)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(104, 13)
+        Me.Label22.TabIndex = 58
+        Me.Label22.Text = "Success as summon"
         '
-        'txtTimePlayed
+        'txtTimesSummoned
         '
-        Me.txtTimePlayed.Location = New System.Drawing.Point(231, 223)
-        Me.txtTimePlayed.Name = "txtTimePlayed"
-        Me.txtTimePlayed.Size = New System.Drawing.Size(99, 20)
-        Me.txtTimePlayed.TabIndex = 43
+        Me.txtTimesSummoned.Location = New System.Drawing.Point(273, 380)
+        Me.txtTimesSummoned.Name = "txtTimesSummoned"
+        Me.txtTimesSummoned.Size = New System.Drawing.Size(57, 20)
+        Me.txtTimesSummoned.TabIndex = 57
         '
-        'Label17
+        'Label23
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(160, 226)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(65, 13)
-        Me.Label17.TabIndex = 42
-        Me.Label17.Text = "Time Played"
-        '
-        'txtCovenant
-        '
-        Me.txtCovenant.Location = New System.Drawing.Point(231, 265)
-        Me.txtCovenant.Name = "txtCovenant"
-        Me.txtCovenant.Size = New System.Drawing.Size(99, 20)
-        Me.txtCovenant.TabIndex = 47
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(172, 268)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(53, 13)
-        Me.Label18.TabIndex = 46
-        Me.Label18.Text = "Covenant"
-        '
-        'chkEmbered
-        '
-        Me.chkEmbered.AutoSize = True
-        Me.chkEmbered.Location = New System.Drawing.Point(391, 120)
-        Me.chkEmbered.Name = "chkEmbered"
-        Me.chkEmbered.Size = New System.Drawing.Size(68, 17)
-        Me.chkEmbered.TabIndex = 48
-        Me.chkEmbered.Text = "Embered"
-        Me.chkEmbered.UseVisualStyleBackColor = True
-        '
-        'chkMale
-        '
-        Me.chkMale.AutoSize = True
-        Me.chkMale.Location = New System.Drawing.Point(391, 141)
-        Me.chkMale.Name = "chkMale"
-        Me.chkMale.Size = New System.Drawing.Size(49, 17)
-        Me.chkMale.TabIndex = 49
-        Me.chkMale.Text = "Male"
-        Me.chkMale.UseVisualStyleBackColor = True
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(199, 383)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(68, 13)
+        Me.Label23.TabIndex = 56
+        Me.Label23.Text = "MP Sessions"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(542, 390)
+        Me.ClientSize = New System.Drawing.Size(552, 501)
         Me.Controls.Add(Me.tabs)
         Me.Name = "Form1"
         Me.Text = "Wulf's Dark Souls 3 Trainer"
@@ -618,4 +718,14 @@ Partial Class Form1
     Friend WithEvents Label18 As Label
     Friend WithEvents chkMale As CheckBox
     Friend WithEvents chkEmbered As CheckBox
+    Friend WithEvents txtZPos As TextBox
+    Friend WithEvents Label19 As Label
+    Friend WithEvents txtYPos As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents txtXPos As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents txtTimesSuccessful As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents txtTimesSummoned As TextBox
+    Friend WithEvents Label23 As Label
 End Class

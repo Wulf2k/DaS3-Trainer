@@ -217,21 +217,24 @@ Public Class Form1
     End Sub
 
     Private Sub refstats()
-        Dim charptr1 = ReadInt64(DS3membase + &H4490F50)
-        charptr1 = ReadInt64(charptr1 + &H28)
-        charptr1 = ReadInt64(charptr1 + &H3A0)
-        charptr1 = ReadInt64(charptr1 + &H30)
+        Dim charptr1 = ReadInt64(DS3membase + &H4491F50)
+        charptr1 = ReadInt64(charptr1 + &H18)
+        charptr1 = ReadInt64(charptr1 + &H7D8)
+        charptr1 = ReadInt64(charptr1 + &H400)
 
-        Dim gamestats = ReadInt64(DS3membase + &H469ADF8)
+        Dim gamestats = ReadInt64(DS3membase + &H469BDF8)
+        Dim gamestats2 = ReadInt64(gamestats + &H10)
         Dim charptr2 = ReadInt64(gamestats + &H10)
 
+        Dim charmapptr = ReadInt64(DS3membase + &H4491F50)
+        charmapptr = ReadInt64(charmapptr + &H28)
 
-        If Not txtCurrHp.Focused Then txtCurrHp.Text = ReadInt32(charptr1 + &HF8)
-        If Not txtMaxHp.Focused Then txtMaxHp.Text = ReadInt32(charptr1 + &HFC)
-        If Not txtCurrFp.Focused Then txtCurrFp.Text = ReadInt32(charptr1 + &H104)
-        If Not txtMaxFp.Focused Then txtMaxFp.Text = ReadInt32(charptr1 + &H108)
-        If Not txtCurrStam.Focused Then txtCurrStam.Text = ReadInt32(charptr1 + &H110)
-        If Not txtMaxStam.Focused Then txtMaxStam.Text = ReadInt32(charptr1 + &H114)
+        If Not txtCurrHp.Focused Then txtCurrHp.Text = ReadInt32(gamestats2 + &H18)
+        If Not txtMaxHp.Focused Then txtMaxHp.Text = ReadInt32(gamestats2 + &H1C)
+        If Not txtCurrFp.Focused Then txtCurrFp.Text = ReadInt32(gamestats2 + &H24)
+        If Not txtMaxFp.Focused Then txtMaxFp.Text = ReadInt32(gamestats2 + &H28)
+        If Not txtCurrStam.Focused Then txtCurrStam.Text = ReadInt32(gamestats2 + &H34)
+        If Not txtMaxStam.Focused Then txtMaxStam.Text = ReadInt32(gamestats2 + &H38)
 
         If Not txtVigor.Focused Then txtVigor.Text = ReadInt32(charptr2 + &H44)
         If Not txtAttunement.Focused Then txtAttunement.Text = ReadInt32(charptr2 + &H48)
@@ -280,7 +283,15 @@ Public Class Form1
 
         chkMale.Checked = (ReadInt8(charptr2 + &HAA) = 1)
         chkEmbered.Checked = (ReadInt8(charptr2 + &H100) = 1)
-        chkHideMap.Checked = (ReadInt8(ReadInt64(DS3membase + &H48A5D20) + &H4E26) = 1)
+        chkHideMap.Checked = (ReadInt8(ReadInt64(DS3membase + &H48A6D20) + &H4E26) = 1)
+
+        If Not txtXPos.Focused Then txtXPos.Text = Math.Round(ReadFloat(charmapptr + &H80), 1)
+        If Not txtYPos.Focused Then txtYPos.Text = Math.Round(ReadFloat(charmapptr + &H84), 1)
+        If Not txtZPos.Focused Then txtZPos.Text = Math.Round(ReadFloat(charmapptr + &H88), 1)
+
+
+        If Not txtTimesSummoned.Focused Then txtTimesSummoned.Text = ReadInt32(gamestats2 + &HB4)
+        If Not txtTimesSuccessful.Focused Then txtTimesSuccessful.Text = ReadInt32(gamestats2 + &HB8)
 
     End Sub
 
@@ -291,7 +302,7 @@ Public Class Form1
     End Function
 
     Private Sub chkHideMap_CheckedChanged(sender As Object, e As EventArgs) Handles chkHideMap.CheckedChanged
-        Dim tmpptr = ReadInt64(DS3membase + &H48A5D20)
+        Dim tmpptr = ReadInt64(DS3membase + &H48A6D20)
 
         If chkHideMap.Checked Then
             WriteInt8(tmpptr + &H4E26, 1)
@@ -304,7 +315,7 @@ Public Class Form1
             hsHips.Scroll, hsRArm.Scroll, hsRLeg.Scroll, hsLArm.Scroll, hsLLeg.Scroll
         Dim idx As Integer = Array.IndexOf(cllHsbars, sender)
 
-        Dim charptr2 = ReadInt64(DS3membase + &H469ADF8)
+        Dim charptr2 = ReadInt64(DS3membase + &H469BDF8)
         charptr2 = ReadInt64(charptr2 + &H10)
 
         Dim val = (sender.value - 50) / 10
